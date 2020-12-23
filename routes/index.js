@@ -12,10 +12,12 @@ router.post("/buscarArribo", async (req, res) => {
   const vuelo = await helpers.arribos(codigoArribo);
 
   if (vuelo) {
-    return res.send(vuelo);
+    console.log(vuelo);
+    return res.render("vuelo", { vuelo });
   }
 
-  res.send("No data.");
+  console.log(vuelo);
+  res.render("vuelo");
 });
 
 module.exports = router;

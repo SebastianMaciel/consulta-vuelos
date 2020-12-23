@@ -61,6 +61,7 @@ const arribos = async (codigoArribo) => {
     // console.log(listaArribos);
   } catch (error) {
     // Con esto seteamos que el front muestre la falta de datos sin que se rompa
+    console.log(error);
     return error;
   }
 };
