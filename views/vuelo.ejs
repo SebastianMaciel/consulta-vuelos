@@ -40,39 +40,45 @@
     </nav>
 
     <div class="container mt-5">
-      <div class="card text-center mx-auto" style="max-width: 400px">
+      <div class="card text-center mx-auto" style="max-width: 500px">
         <div class="card-header">Arribo</div>
-        <div class="card-body">
-          <h2 class="card-title"><%= vuelo.vuelo %></h5>
-          <p class="card-text">Ingresá abajo el código de tu vuelo</p>
+        <div class="card-body p-3 pt-2">
+          <h1 class="card-title"><%= vuelo.vuelo %></h1>
           <div class="row g-3 align-items-center justify-content-center">
-            <div class="list-group">
-              <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+            <div class="list-group p-0">
+              <div class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-center">
+                  <h5 class="mb-1 text-center">Estado</h5>
+                </div>
+                <h2 class="mb-1"><%= vuelo.status %></h2>
+              </div>
+              <div class="list-group-item list-group-item-action">
                 <div class="d-flex w-100 justify-content-center">
                   <h5 class="mb-1 text-center">Horario</h5>
                 </div>
-                <p class="mb-1"><%= vuelo.horario %></p>
-                <!-- <small>Donec id elit non mi porta.</small> -->
-              </a>
-              <a href="#" class="list-group-item list-group-item-action">
-                <div class="d-flex w-100 justify-content-between">
-                  <h5 class="mb-1">List group item heading</h5>
-                  <small class="text-muted">3 days ago</small>
+                <h2 class="mb-1"><%= vuelo.horario %></h2>
+              </div>
+              <div class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-center">
+                  <h5 class="mb-1 text-center">Línea</h5>
                 </div>
-                <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-                <small class="text-muted">Donec id elit non mi porta.</small>
-              </a>
-              <a href="#" class="list-group-item list-group-item-action">
-                <div class="d-flex w-100 justify-content-between">
-                  <h5 class="mb-1">List group item heading</h5>
-                  <small class="text-muted">3 days ago</small>
+                <h2 class="mb-1"><%= vuelo.linea %></h2>
+              </div>
+              <div class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-center">
+                  <h5 class="mb-1 text-center">Cuidad</h5>
                 </div>
-                <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-                <small class="text-muted">Donec id elit non mi porta.</small>
-              </a>
+                <h2 class="mb-1"><%= vuelo.ciudad %></h2>
+              </div>
+              <div class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-center">
+                  <h5 class="mb-1 text-center">Terminal</h5>
+                </div>
+                <h2 class="mb-1"><%= vuelo.termsec %></h2>
+              </div>
+
             </div>
         </div>
-        <div class="card-footer text-success">Conectado</div>
       </div>
     </div>
 
