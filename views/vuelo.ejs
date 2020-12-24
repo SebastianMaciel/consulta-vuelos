@@ -15,7 +15,7 @@
 
     <title>Consulta de Vuelos</title>
   </head>
-  <body class="bg-dark">
+  <body class="bg-dark pb-5">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
         <a class="navbar-brand" href="/">AA2000</a>
@@ -49,7 +49,7 @@
       <% } else { %>
         
         <div class="card bg-dark text-white border-info mx-auto" style="max-width: 500px">
-          <div class="card-body py-1 text-center">
+          <div class="card-body py-2 text-center">
             <h2 class="text-info text-center">Arribo</h2>
             <h2 class="fw-lighter mb-0"><%= vuelo.linea %></h2>
             <h1 class="display-1"><%= vuelo.vuelo %></h1>
@@ -58,14 +58,14 @@
         </div>
 
         <div class="card bg-dark text-white border-info mx-auto mt-2" style="max-width: 600px">
-          <div class="card-body py-1 text-center">
+          <div class="card-body py-2 text-center">
             <h2 class="text-info mb-0">Ciudad</h2>
             <h1 class="display-4"><%= vuelo.ciudad %></h1>
           </div>
         </div>
 
         <div class="card bg-dark text-white border-info mx-auto mt-2" style="max-width: 500px">
-          <div class="card-body py-1 text-center">
+          <div class="card-body py-2 text-center">
             <h2 class="text-info mb-0">Estado</h2>
             <% if(vuelo.status === '--') { %>
               <h1 class="display-4">No informado</h1>
@@ -76,14 +76,14 @@
         </div>
 
         <div class="card bg-dark text-white border-info mx-auto mt-2" style="max-width: 400px">
-          <div class="card-body py-1 text-center">
+          <div class="card-body py-2 text-center">
             <h2 class="text-info mb-0">Estimado</h2>
             <h1 class="display-4"><%= vuelo.estima %></h1>
           </div>
         </div>
 
         <div class="card bg-dark text-white border-info mx-auto mt-2" style="max-width: 200px">
-          <div class="card-body py-1 text-center">
+          <div class="card-body py-2 text-center">
             <h2 class="text-info mb-0">Terminal</h2>
             <h1 class="display-4"><%= vuelo.termsec %></h1>
           </div>
