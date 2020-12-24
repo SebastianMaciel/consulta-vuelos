@@ -32,7 +32,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
-            <a class="nav-link active" aria-current="page" href="#">Arribos</a>
+            <a class="nav-link active" aria-current="page" href="/">Arribos</a>
             <a class="nav-link" href="#">Partidas</a>
           </div>
         </div>
@@ -40,28 +40,32 @@
     </nav>
 
     <div class="container mt-5">
-      <div class="card text-center mx-auto" style="max-width: 400px">
-        <div class="card-header">Arribos</div>
-        <div class="card-body">
-          <h2 class="card-title">Código de vuelo</h5>
-          <p class="card-text">Ingresá abajo el código de tu vuelo</p>
-          <div class="row g-3 align-items-center justify-content-center">
-            <form action="/buscarArribo" method="POST">
-              <div class="col-auto">
-                <input type="text" name="codigoArribo" class="form-control mx-auto" style="max-width: 200px">
-              </div>
-              <div class="col-auto">
-                <span class="form-text">
-                  Ej: BA 245.
-                </span>
-              </div>
-            </div>
-            <button type="submit" class="btn btn-lg btn-primary mt-4 mb-2">Buscar Arribo</button>
-          </form>
-          <a href="/ver-arribos" class="btn btn-lg btn-outline-info mt-4 mb-2">Ver todos los arribos</a>
-        </div>
-        <div class="card-footer text-success">Conectado</div>
-      </div>
+      <h1 class="display-4 text-info">Todos los arribos</h1>
+
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Vuelo</th>
+            <th scope="col">Horario</th>
+            <th scope="col">Línea</th>
+            <th scope="col">Ciudad</th>
+            <th scope="col">Terminal</th>
+            <th scope="col">Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% vuelos.forEach(vuelo => { %>
+          <tr>
+            <th scope="row"><%= vuelo.vuelo %></th>
+            <td><%= vuelo.horario %></td>
+            <td><%= vuelo.linea %></td>
+            <td><%= vuelo.ciudad %></td>
+            <td><%= vuelo.termsec %></td>
+            <td><%= vuelo.status %></td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
     </div>
 
     <!-- Bootstrap Bundle with Popper -->

@@ -8,6 +8,7 @@ const $ = require("cheerio");
 //
 //  ============================================================================================================
 //  ============================================================================================================
+
 const arribos = async (codigoArribo) => {
   // Esta va a ser la web para el scraping
   const url = "https://www.aa2000.com.ar/ezeiza";
@@ -45,26 +46,28 @@ const arribos = async (codigoArribo) => {
       listaArribos.push(info);
     }
 
+    // console.log(listaArribos);
+
+    return listaArribos;
     // Para buscar un valor:
 
-    let match = listaArribos.find((vuelos) => vuelos.vuelo === codigoArribo);
+    //let match = listaArribos.find((vuelos) => vuelos.vuelo === codigoArribo);
 
-    if (match) {
-      return match;
-    }
+    //if (match) {
+    //  return match;
+    //}
 
-    return false;
-
-    // return match;
-
-    // // Mandamos la lista para que se use en el front
-    // console.log(listaArribos);
+    //return false;
   } catch (error) {
     // Con esto seteamos que el front muestre la falta de datos sin que se rompa
     console.log(error);
     return error;
   }
 };
+
+let todosLosArribos = arribos();
+
+console.log(todosLosArribos);
 
 //  ============================================================================================================
 //  ============================================================================================================

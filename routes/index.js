@@ -9,15 +9,21 @@ router.get("/", (req, res) => {
 router.post("/buscarArribo", async (req, res) => {
   const { codigoArribo } = req.body;
 
-  const vuelo = await helpers.arribos(codigoArribo);
+  const vuelos = await helpers.arribos();
+
+  let vuelo = vuelos.find((vuelos) => vuelos.vuelo === codigoArribo);
 
   if (vuelo) {
-    console.log(vuelo);
     return res.render("vuelo", { vuelo });
   }
 
-  console.log(vuelo);
-  res.render("vuelo");
+  res.render("vuelo", { vuelo: undefined });
+});
+
+router.get("/ver-arribos", async (req, res) => {
+  const vuelos = await helpers.arribos();
+
+  res.render("ver-arribos", { vuelos });
 });
 
 module.exports = router;

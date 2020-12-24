@@ -40,8 +40,15 @@
     </nav>
 
     <div class="container mt-5">
+      <% if(!vuelo) { %>
+        <h1 class="display-1 text-center">No hay coincidencias</h3>
+        <h1 class="display-1 text-center">
+          <a href="/" class="btn btn-lg btn-primary btn-fluid mt-4 mb-2 mx-auto" style="max-width: 800px; margin: 0px auto">Volver a buscar</a>
+        </h3>
+      <% } else { %>
+
       <div class="card text-center mx-auto" style="max-width: 500px">
-        <div class="card-header">Arribo</div>
+        <div class="card-header"><%= vuelo.tipo %></div>
         <div class="card-body p-3 pt-2">
           <h1 class="card-title"><%= vuelo.vuelo %></h1>
           <div class="row g-3 align-items-center justify-content-center">
@@ -76,10 +83,12 @@
                 </div>
                 <h2 class="mb-1"><%= vuelo.termsec %></h2>
               </div>
-
             </div>
+          </div>
         </div>
       </div>
+
+      <% }; %>
     </div>
 
     <!-- Bootstrap Bundle with Popper -->
