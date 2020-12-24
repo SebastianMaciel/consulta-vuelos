@@ -9,22 +9,22 @@ const $ = require("cheerio");
 //  ============================================================================================================
 //  ============================================================================================================
 
-const arribos = async (codigoArribo) => {
+const arribos = async () => {
   // Esta va a ser la web para el scraping
   const url = "https://www.aa2000.com.ar/ezeiza";
   const dataVuelos = await rp(url);
-
-  // console.log(transito);
 
   try {
     // Esta búsqueda nos devuelve la lista de textos que nos interesan
     const horario = $("#arribos .popup .stda", dataVuelos);
     const vuelos = $("#arribos .popup .vuelo", dataVuelos);
-    const linea = $("#arribos .popup .linea > span", dataVuelos);
-    const ciudad = $("#arribos .popup .ciudad", dataVuelos);
-    // const estimado = $("#arribos .estima", dataVuelos);
-    const termsec = $("#arribos .popup .termsec", dataVuelos);
-    const status = $("#arribos .popup .statusText", dataVuelos);
+    const linea = $(".linea > span", dataVuelos);
+    const ciudad = $(".ciudad", dataVuelos);
+    const termsec = $(".termsec", dataVuelos);
+    const status = $(".statusText", dataVuelos);
+    const estima = $(".estima", "#arribos", dataVuelos);
+
+    let datos = Array.from(estima[1].children[0].data).join("");
 
     // // En este vamos a pushear lo que nos interesa
     let listaArribos = [];
@@ -32,13 +32,22 @@ const arribos = async (codigoArribo) => {
     // En el array, tenemos que buscar adentro los textos con info que queremos mostrar
     for (let i = 0; i < vuelos.length; i++) {
       // Creamos el objeto solo con la parte de texto que nos interesa, formateada.
+
+      let estimado = "";
+
+      if (estima[i].children[0]) {
+        estimado = estima[i].children[0].data;
+      } else {
+        estimado = "Sin Estimación";
+      }
+
       let info = {
         tipo: "Arribo",
         horario: horario[i].children[0].data.trim(),
         vuelo: vuelos[i].children[0].data.trim(),
         linea: linea[i].children[0].data.trim(),
-        ciudad: ciudad[i].children[0].data.trim(),
-        // estimado: estimado[i].children[0].data,
+        ciudad: ciudad[i].children[0].data,
+        estima: estimado,
         termsec: termsec[i].children[0].data.trim(),
         status: status[i].children[0].data.trim(),
       };
@@ -46,28 +55,13 @@ const arribos = async (codigoArribo) => {
       listaArribos.push(info);
     }
 
-    // console.log(listaArribos);
-
     return listaArribos;
-    // Para buscar un valor:
-
-    //let match = listaArribos.find((vuelos) => vuelos.vuelo === codigoArribo);
-
-    //if (match) {
-    //  return match;
-    //}
-
-    //return false;
   } catch (error) {
     // Con esto seteamos que el front muestre la falta de datos sin que se rompa
     console.log(error);
     return error;
   }
 };
-
-let todosLosArribos = arribos();
-
-console.log(todosLosArribos);
 
 //  ============================================================================================================
 //  ============================================================================================================

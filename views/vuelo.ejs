@@ -15,8 +15,8 @@
 
     <title>Consulta de Vuelos</title>
   </head>
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <body class="bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
         <a class="navbar-brand" href="/">AA2000</a>
         <button
@@ -32,7 +32,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
-            <a class="nav-link active" aria-current="page" href="#">Arribos</a>
+            <a class="nav-link active" aria-current="page" href="/">Arribos</a>
             <a class="nav-link" href="#">Partidas</a>
           </div>
         </div>
@@ -41,13 +41,55 @@
 
     <div class="container mt-5">
       <% if(!vuelo) { %>
-        <h1 class="display-1 text-center">No hay coincidencias</h3>
-        <h1 class="display-1 text-center">
-          <a href="/" class="btn btn-lg btn-primary btn-fluid mt-4 mb-2 mx-auto" style="max-width: 800px; margin: 0px auto">Volver a buscar</a>
+        <h1 class="display-3 text-white text-center">No hay coincidencias</h3>
+        <h1 class="display-3 text-white text-center">para: <%= codigo %></h3>
+        <h1 class="text-center">
+          <a href="/" class="btn btn-lg btn-outline-info btn-fluid mt-4 mb-2 mx-auto" style="max-width: 800px; margin: 0px auto">Volver a buscar</a>
         </h3>
       <% } else { %>
+        
+        <div class="card bg-dark text-white border-info mx-auto" style="max-width: 500px">
+          <div class="card-body py-1 text-center">
+            <h2 class="text-info text-center">Arribo</h2>
+            <h2 class="fw-lighter mb-0"><%= vuelo.linea %></h2>
+            <h1 class="display-1"><%= vuelo.vuelo %></h1>
+            <h1 class="display-4"><%= vuelo.horario %></h1>
+          </div>
+        </div>
 
-      <div class="card text-center mx-auto" style="max-width: 500px">
+        <div class="card bg-dark text-white border-info mx-auto mt-2" style="max-width: 600px">
+          <div class="card-body py-1 text-center">
+            <h2 class="text-info mb-0">Ciudad</h2>
+            <h1 class="display-4"><%= vuelo.ciudad %></h1>
+          </div>
+        </div>
+
+        <div class="card bg-dark text-white border-info mx-auto mt-2" style="max-width: 500px">
+          <div class="card-body py-1 text-center">
+            <h2 class="text-info mb-0">Estado</h2>
+            <% if(vuelo.status === '--') { %>
+              <h1 class="display-4">No informado</h1>
+              <% } else { %>
+                <h1 class="display-4"><%= vuelo.status %></h1>
+            <% }; %>
+          </div>
+        </div>
+
+        <div class="card bg-dark text-white border-info mx-auto mt-2" style="max-width: 400px">
+          <div class="card-body py-1 text-center">
+            <h2 class="text-info mb-0">Estimado</h2>
+            <h1 class="display-4"><%= vuelo.estima %></h1>
+          </div>
+        </div>
+
+        <div class="card bg-dark text-white border-info mx-auto mt-2" style="max-width: 200px">
+          <div class="card-body py-1 text-center">
+            <h2 class="text-info mb-0">Terminal</h2>
+            <h1 class="display-4"><%= vuelo.termsec %></h1>
+          </div>
+        </div>
+
+      <!-- <div class="card text-center mx-auto" style="max-width: 500px">
         <div class="card-header"><%= vuelo.tipo %></div>
         <div class="card-body p-3 pt-2">
           <h1 class="card-title"><%= vuelo.vuelo %></h1>
@@ -86,7 +128,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <% }; %>
     </div>

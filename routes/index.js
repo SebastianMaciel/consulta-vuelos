@@ -11,13 +11,13 @@ router.post("/buscarArribo", async (req, res) => {
 
   const vuelos = await helpers.arribos();
 
-  let vuelo = vuelos.find((vuelos) => vuelos.vuelo === codigoArribo);
+  let vuelo = vuelos.find((vuelos) => vuelos.vuelo === codigoArribo.toUpperCase());
 
   if (vuelo) {
     return res.render("vuelo", { vuelo });
   }
 
-  res.render("vuelo", { vuelo: undefined });
+  res.render("vuelo", { vuelo: undefined, codigo: codigoArribo.toUpperCase() });
 });
 
 router.get("/ver-arribos", async (req, res) => {
