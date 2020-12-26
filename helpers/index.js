@@ -24,7 +24,7 @@ const arribos = async () => {
     const status = $(".statusText", dataVuelos);
     const estima = $(".estima", "#arribos", dataVuelos);
 
-    let datos = Array.from(estima[1].children[0].data).join("");
+    // let datos = Array.from(estima[1].children[0].data).join("");
 
     // // En este vamos a pushear lo que nos interesa
     let listaArribos = [];

@@ -40,29 +40,31 @@
     </nav>
 
     <div class="container mt-5">
-      <h1 class="display-4 text-info pb-2">Todos los arribos</h1>
+      <h1 class="display-4 text-info pb-2 text-center">Todos los arribos</h1>
 
-      <table class="table table-dark table-striped table-hover table-responsive">
+      <table class="table table-dark table-striped table-hover table-responsive mx-auto" style="max-width: 600px">
         <thead>
           <tr>
-            <th scope="col">Vuelo</th>
-            <th scope="col">Horario</th>
-            <th scope="col">Línea</th>
-            <th scope="col">Ciudad</th>
-            <th scope="col">Terminal</th>
-            <th scope="col">Estado</th>
+            <th scope="col" style="max-width: 30px">Vuelo</th>
+            <th scope="col" style="max-width: 40px">Horario</th>
+            <!-- <th scope="col">Línea</th> -->
+            <th scope="col" style="max-width: 60px">Ciudad</th>
+            <!-- <th scope="col">Terminal</th> -->
+            <th scope="col" style="max-width: 60px">Estado</th>
           </tr>
         </thead>
         <tbody>
           <% vuelos.forEach(vuelo => { %>
-          <tr>
-            <th scope="row"><%= vuelo.vuelo %></th>
-            <td><%= vuelo.horario %></td>
-            <td><%= vuelo.linea %></td>
-            <td><%= vuelo.ciudad %></td>
-            <td><%= vuelo.termsec %></td>
-            <td><%= vuelo.status %></td>
-          </tr>
+          <a href="/verArriboDesdeTabla/<%= vuelo.vuelo %>" class="text-decoration-none text-white">
+            <tr>
+              <th scope="row" style="max-width: 30px"><%= vuelo.vuelo %></th>
+              <td style="max-width: 40px"><%= vuelo.horario %></td>
+              <!-- <td><%= vuelo.linea %></td> -->
+              <td style="max-width: 60px"><%= vuelo.ciudad %></td>
+              <!-- <td><%= vuelo.termsec %></td> -->
+              <td style="max-width: 60px"><%= vuelo.status %></td>
+            </tr>
+          </a>
           <% }) %>
         </tbody>
       </table>
