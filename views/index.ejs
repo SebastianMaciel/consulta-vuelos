@@ -47,7 +47,15 @@
           <div class="row g-3 align-items-center justify-content-center">
             <form action="/buscarArribo" method="POST">
               <div class="col-auto">
-                <input type="text" name="codigoArribo" class="form-control form-control-lg mx-auto bg-dark text-info" style="max-width: 200px">
+                
+                <label for="exampleDataList" class="form-label">Elegir vuelo</label>
+                <!-- <input type="text" name="codigoArribo" class="form-control form-control-lg mx-auto bg-dark text-info" style="max-width: 200px"> -->
+                <input name="codigoArribo" class="form-control form-control-lg mx-auto bg-dark text-info" list="datalistOptions" id="exampleDataList" style="max-width: 200px" autocomplete="off">
+                <datalist id="datalistOptions">
+                  <% vuelos.forEach(vuelo => { %>
+                    <option value="<%= vuelo.vuelo %>">
+                    <% }) %>
+                </datalist>
               </div>
               <div class="col-auto">
                 <span class="form-text">

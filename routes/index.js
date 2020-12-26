@@ -2,8 +2,12 @@ var express = require("express");
 var router = express.Router();
 const helpers = require("../helpers");
 
-router.get("/", (req, res) => {
-  res.render("index");
+router.get("/", async (req, res) => {
+  const vuelos = await helpers.soloVuelos();
+
+  console.log(vuelos);
+
+  res.render("index", { vuelos });
 });
 
 router.post("/buscarArribo", async (req, res) => {

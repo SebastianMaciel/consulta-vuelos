@@ -42,34 +42,36 @@
     <div class="container mt-5">
       <h1 class="display-4 text-info pb-2 text-center">Todos los arribos</h1>
 
-      <table class="table table-dark table-striped table-hover table-responsive mx-auto" style="max-width: 600px">
-        <thead>
-          <tr>
-            <th scope="col" style="max-width: 30px">Vuelo</th>
-            <th scope="col" style="max-width: 40px">Horario</th>
-            <!-- <th scope="col">Línea</th> -->
-            <th scope="col" style="max-width: 60px">Ciudad</th>
-            <!-- <th scope="col">Terminal</th> -->
-            <th scope="col" style="max-width: 60px">Estado</th>
-            <th scope="col" style="max-width: 20px"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <% vuelos.forEach(vuelo => { %>
-          <tr>
-            <th scope="row" style="max-width: 30px"><%= vuelo.vuelo %></th>
-            <td style="max-width: 40px"><%= vuelo.horario %></td>
-            <!-- <td><%= vuelo.linea %></td> -->
-            <td style="max-width: 60px"><%= vuelo.ciudad %></td>
-            <!-- <td><%= vuelo.termsec %></td> -->
-            <td style="max-width: 60px"><%= vuelo.status %></td>
-            <td style="max-width: 25px">
-              <a class="btn btn-info btn-fluid" href="/verArriboDesdeTabla/<%= vuelo.vuelo %>" role="button">Ver</a>
-            </td>
-          </tr>
-          <% }) %>
-        </tbody>
-      </table>
+      <div class="table-responsive">
+        <table class="table table-sm table-dark table-striped table-hover mx-auto text-center" style="max-width: 600px">
+          <thead>
+            <tr>
+              <th scope="col" style="max-width: 30px">Vuelo</th>
+              <th scope="col" style="max-width: 40px">Horario</th>
+              <!-- <th scope="col">Línea</th> -->
+              <th scope="col" style="max-width: 60px">Ciudad</th>
+              <!-- <th scope="col">Terminal</th> -->
+              <th scope="col" style="max-width: 60px">Estado</th>
+              <th scope="col" style="width: 25px"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% vuelos.forEach(vuelo => { %>
+            <tr>
+              <th scope="row" style="max-width: 30px"><%= vuelo.vuelo %></th>
+              <td style="max-width: 40px"><%= vuelo.horario %></td>
+              <!-- <td><%= vuelo.linea %></td> -->
+              <td style="max-width: 60px"><%= vuelo.ciudad %></td>
+              <!-- <td><%= vuelo.termsec %></td> -->
+              <td style="max-width: 60px"><%= vuelo.status %></td>
+              <td style="width: 25px">
+                <a class="btn btn-info btn-fluid" href="/verArriboDesdeTabla/<%= vuelo.vuelo %>" role="button">Ver</a>
+              </td>
+            </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
     </div>
 
     <!-- Bootstrap Bundle with Popper -->
