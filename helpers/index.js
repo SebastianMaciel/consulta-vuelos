@@ -142,7 +142,6 @@ const partidas = async (codigoPartida) => {
     }
 
     // // Mandamos la lista para que se use en el front
-    // console.log(listaPartidas);
   } catch (error) {
     // Con esto seteamos que el front muestre la falta de datos sin que se rompa
     return error;

@@ -1,8 +1,8 @@
 const express = require("express");
 const app = express();
-port = process.env.PORT || 3000;
+const port = process.env.PORT || 3000;
 
-var appRoutes = require("./routes/index.js");
+const appRoutes = require("./routes/index.js");
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(__dirname + "/views"));
