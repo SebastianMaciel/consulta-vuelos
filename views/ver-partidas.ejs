@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap.min.css" />
+
+    <title>Consulta de Vuelos</title>
+  </head>
+  <body class="pb-5" style="background-color: #070707">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">AA2000</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link active" aria-current="page" href="/">Arribos</a>
+            <a class="nav-link" href="/ver-partidas">Partidas</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container mt-5">
+      <h1 class="display-4 text-info pb-2 text-center">Todos los arribos</h1>
+
+      <div class="table-responsive">
+        <table
+          id="myTable"
+          class="table table-sm table-dark table-striped table-hover mx-auto text-center"
+          style="max-width: 600px"
+        >
+          <thead>
+            <tr>
+              <th scope="col" style="max-width: 30px">Vuelo</th>
+              <th scope="col" style="max-width: 40px">Horario</th>
+              <!-- <th scope="col">Línea</th> -->
+              <th scope="col" style="max-width: 60px">Ciudad</th>
+              <!-- <th scope="col">Terminal</th> -->
+              <th scope="col" style="max-width: 60px">Estado</th>
+              <th scope="col" style="width: 25px"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% vuelos.forEach(vuelo => { %>
+            <tr>
+              <th scope="row" style="max-width: 30px"><%= vuelo.vuelo %></th>
+              <td style="max-width: 40px"><%= vuelo.horario %></td>
+              <!-- <td><%= vuelo.linea %></td> -->
+              <td style="max-width: 60px"><%= vuelo.ciudad %></td>
+              <!-- <td><%= vuelo.termsec %></td> -->
+              <td style="max-width: 60px"><%= vuelo.status %></td>
+              <td style="width: 25px">
+                <a class="btn btn-info btn-fluid" href="/verArriboDesdeTabla/<%= vuelo.vuelo %>" role="button">Ver</a>
+              </td>
+            </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+      integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+      crossorigin="anonymous"
+    ></script>
+    <!-- <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script> -->
+    <!-- <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap.min.js"></script> -->
+    <!-- <script src="./js/ver-arribos.js"></script> -->
+  </body>
+</html>

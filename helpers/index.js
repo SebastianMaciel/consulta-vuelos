@@ -43,6 +43,45 @@ const soloVuelos = async () => {
 //  ============================================================================================================
 //  ============================================================================================================
 //
+//  Solo Partidas
+//
+//  ============================================================================================================
+//  ============================================================================================================
+
+const soloPartidas = async () => {
+  // Esta va a ser la web para el scraping
+  const url = "https://www.aa2000.com.ar/ezeiza";
+  const dataVuelos = await rp(url);
+
+  try {
+    // Esta búsqueda nos devuelve la lista de textos que nos interesan
+    const vuelos = $("#arribos .popup .vuelo", dataVuelos);
+
+    // // En este vamos a pushear lo que nos interesa
+    let listaArribos = [];
+
+    // En el array, tenemos que buscar adentro los textos con info que queremos mostrar
+    for (let i = 0; i < vuelos.length; i++) {
+      // Creamos el objeto solo con la parte de texto que nos interesa, formateada.
+
+      let info = {
+        vuelo: vuelos[i].children[0].data.trim(),
+      };
+      // Lo agregamos a la lista de arribos
+      listaArribos.push(info);
+    }
+
+    return listaArribos;
+  } catch (error) {
+    // Con esto seteamos que el front muestre la falta de datos sin que se rompa
+    console.log(error);
+    return error;
+  }
+};
+
+//  ============================================================================================================
+//  ============================================================================================================
+//
 //  Arribos
 //
 //  ============================================================================================================
@@ -158,4 +197,5 @@ const partidas = async (codigoPartida) => {
 module.exports = {
   arribos,
   soloVuelos,
+  partidas
 };

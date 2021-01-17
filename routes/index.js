@@ -60,4 +60,23 @@ router.get("/verArriboDesdeTabla/:codigoArribo", async (req, res) => {
   res.render("vuelo", { vuelo: undefined, codigo: codigoArribo.toUpperCase() });
 });
 
+
+// Buscar Partidas
+router.get("/partidas", async (req, res) => {
+  // Buscamos todos los vuelos
+  const vuelos = await helpers.soloVuelos();
+
+  // Lo llevamos al index
+  res.render("index", { vuelos });
+});
+
+// Ver Partidas
+router.get("/ver-partidas", async (req, res) => {
+  // Pedimos los arribos
+  const vuelos = await helpers.partidas();
+
+  // Los volcamos en el html
+  res.render("ver-partidas", { vuelos });
+});
+
 module.exports = router;
