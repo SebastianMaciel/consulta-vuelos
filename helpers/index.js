@@ -55,7 +55,7 @@ const soloPartidas = async () => {
 
   try {
     // Esta búsqueda nos devuelve la lista de textos que nos interesan
-    const vuelos = $("#arribos .popup .vuelo", dataVuelos);
+    const vuelos = $("#partidas .popup .vuelo", dataVuelos);
 
     // // En este vamos a pushear lo que nos interesa
     let listaArribos = [];
@@ -197,5 +197,6 @@ const partidas = async (codigoPartida) => {
 module.exports = {
   arribos,
   soloVuelos,
-  partidas
+  partidas,
+  soloPartidas
 };

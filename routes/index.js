@@ -64,7 +64,7 @@ router.get("/verArriboDesdeTabla/:codigoArribo", async (req, res) => {
 // Buscar Partidas
 router.get("/partidas", async (req, res) => {
   // Buscamos todos los vuelos
-  const vuelos = await helpers.soloVuelos();
+  const vuelos = await helpers.soloPartidas();
 
   // Lo llevamos al index
   res.render("index", { vuelos });
